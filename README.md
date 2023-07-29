@@ -1,7 +1,10 @@
 # Data Analyist
 
+#### Technical Skills : MS Excel, Python, SQL, PowerBI
+
 ### Education
-California State University Northridge
--Mathematics B.S.
+-B.S., Mathematics | California State University Northridge | Spring '21
+ 
+### Code Basics
 
 ### Projects
