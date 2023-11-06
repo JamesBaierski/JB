@@ -1,3 +1,4 @@
+(IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
 # Data Analyist
 
 ## About Me
@@ -15,7 +16,7 @@
 [assign 5](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign5.py.pdf)
 
 ### SQL - Code basics
-#####[assign 1](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf)
+[assign 1](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf)
 [assign 2](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%202.pdf)
 [assign 3](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%203.pdf)
 [assign 4](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%204.pdf)
