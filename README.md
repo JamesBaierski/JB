@@ -6,7 +6,7 @@
 
 My name is James Baierski. I will be adding my projects to this website over time to showcase my work for potential employers.
 
-### Education
+## Education
 - Transfer Student | Palomar College, San Marcos, CA |
 - B.S. , Mathematics | California State University Northridge | Spring '22
 
