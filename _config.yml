@@ -1,3 +1,9 @@
 title: James Baierski
 #logo:
-theme: jekyll-theme-minimal
+theme: jekyll-theme-minimal 
+description: " Data "
+show_socials: true
+
+
+externals:
+  -{ title: mail, icon: envelope, url: "mailto:jamesbaierski@gmail.com" }
