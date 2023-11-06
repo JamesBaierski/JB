@@ -12,7 +12,7 @@ My name is James Baierski. I will be adding my projects to this website over tim
 
 ![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
  
-# Python - Code Basics
+# Python - Code Basics 
 [Tip calculator](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign1.py.pdf){:target="_blank" rel="noopener"}
 
 -Basic coding , Basic data types
@@ -71,3 +71,6 @@ My name is James Baierski. I will be adding my projects to this website over tim
 -Sub Queries with various operators 
 
 
+The above excersises are from:
+Python excersise from Kathy Herring Hayashi - Palomar College
+SQL Excersises from Steve Perry -Palomar College
