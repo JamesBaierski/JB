@@ -1,5 +1,3 @@
-![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
-
 # Data Analyst
 
 ## About Me
@@ -8,8 +6,10 @@
 
 ### Education
 -B.S., Mathematics | California State University Northridge | Spring '22
+
+![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
  
-### Python - Code Basics
+# Python - Code Basics
 [Tip calculator](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign1.py.pdf){:target="_blank" rel="noopener"}
 
 -Basic coding, Basic data types
@@ -30,7 +30,7 @@
 
 -Using imports/ modules
 
-### SQL - Code basics
+# SQL - Code basics
 [Definitions](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf){:target="_blank" rel="noopener"}
 
  -Basic definitions: Entity, Null value and Primary key
