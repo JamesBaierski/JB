@@ -15,11 +15,11 @@ My name is James Baierski. I will be adding my projects to this website over tim
 # Python - Code Basics
 [Tip calculator](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign1.py.pdf){:target="_blank" rel="noopener"}
 
--Basic coding, Basic data types
+-Basic coding , Basic data types
 
 [Shipping Calculator](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign2.py.pdf){:target="_blank" rel="noopener"}
 
--If statements,logical operators, string comparisons 
+-If statements ,logical operators, string comparisons 
 
 [tip calculator with loops](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign3.py.pdf){:target="_blank" rel="noopener"}
 
@@ -27,7 +27,7 @@ My name is James Baierski. I will be adding my projects to this website over tim
 
 [feet and meters converter](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign4.py.pdf){:target="_blank" rel="noopener"}
 
--define and call functions, local vs global variables, passing data to/from function
+-define and call functions , local vs global variables , passing data to/from function
 
 [Imports](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign5.py.pdf){:target="_blank" rel="noopener"}
 
