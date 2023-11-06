@@ -1,4 +1,4 @@
-(IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
+![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
 # Data Analyist
 
 ## About Me
