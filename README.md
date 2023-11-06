@@ -12,13 +12,23 @@
 ### Python - Code Basics
 [Tip calculator](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign1.py.pdf){:target="_blank" rel="noopener"}
 
-[assign 2](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign2.py.pdf){:target="_blank" rel="noopener"}
+-Basic coding, Basic data types
 
-[assign 3](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign3.py.pdf){:target="_blank" rel="noopener"}
+[Shipping Calculator](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign2.py.pdf){:target="_blank" rel="noopener"}
 
-[assign 4](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign4.py.pdf){:target="_blank" rel="noopener"}
+-If statements,logical operators, string comparisons 
 
-[assign 5](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign5.py.pdf){:target="_blank" rel="noopener"}
+[tip calculator with loops](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign3.py.pdf){:target="_blank" rel="noopener"}
+
+-for/while loops, break/continue
+
+[feet and meters converter](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign4.py.pdf){:target="_blank" rel="noopener"}
+
+-define and call functions, local vs global variables, passing data to/from function
+
+[Imports](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign5.py.pdf){:target="_blank" rel="noopener"}
+
+-Using imports/ modules
 
 ### SQL - Code basics
 [Definitions](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf){:target="_blank" rel="noopener"}
@@ -56,4 +66,5 @@
 [SUB QUERIES](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%209.pdf){:target="_blank" rel="noopener"}
 
 -Sub Queries with various operators 
+
 ### Projects
