@@ -2,6 +2,8 @@ title: James Baierski
 #logo:
 theme: jekyll-theme-minimal 
 show_socials: true
+kramdown:
+  input: Kramdown
 
 
 
