@@ -1,5 +1,7 @@
-# Python - Code Basics 
-[Tip calculator](annotated-Baierski_assign1.py.pdf){:target="_blank" rel="noopener"}
+#Python and SQL skills/basic concepts
+
+### Python - Code Basics 
+[Tip calculator]([annotated-Baierski_assign1.py.pdf](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign1.py.pdf)){:target="_blank" rel="noopener"}
 
 -Basic coding , Basic data types
 
@@ -19,7 +21,7 @@
 
 -Using imports/ modules
 
-# SQL - Code basics
+### SQL - Code basics
 [Definitions](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf){:target="_blank" rel="noopener"}
 
  -Basic definitions: Entity, Null value and Primary key
@@ -55,3 +57,8 @@
 [SUB QUERIES](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%209.pdf){:target="_blank" rel="noopener"}
 
 -Sub Queries with various operators 
+
+
+
+
+The above excersises are from Kathy Herring Hayashi and Steve Perry - Palomar College
