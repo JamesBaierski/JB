@@ -12,11 +12,9 @@ My name is James Baierski. I will be adding my projects and skills to this websi
 
 ![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
 
-[SQL and python skills](Skills.md)
+[SQL and Python Skills](Skills.md)
  
 
 
 
-The above excersises are from:
-Python excersise from Kathy Herring Hayashi - Palomar College
-SQL Excersises from Steve Perry -Palomar College
+
