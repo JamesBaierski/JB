@@ -12,7 +12,7 @@ My name is James Baierski. I will be adding my projects and skills to this websi
 
 ![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
 
-[SQL and python skills](https://github.com/JamesBaierski/JB/blob/main/Skills.md)
+[SQL and python skills](Skills.md)
  
 # Python - Code Basics 
 [Tip calculator](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign1.py.pdf){:target="_blank" rel="noopener"}
