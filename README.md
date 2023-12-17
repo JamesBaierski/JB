@@ -2,7 +2,7 @@
 
 ### Technical Skills : MS Excel, Python, SQL, PowerBI
 
-[SQL and Python Skills](Skills.md)
+[SQL AND PYTHON SKILLS/BASICS](Skills.md)
 
 ![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
 
