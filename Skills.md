@@ -23,6 +23,31 @@
 
 -Using imports/ modules
 
+[Basic Array functions](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign6.py.pdf){:target="_blank" rel="noopener"}
+
+-add/drop append array
+
+[Intro to Exceptions](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign8-1.py.pdf){:target="_blank" rel="noopener"}
+
+-try/except using functions
+
+[Pay Check Calculator](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign9-4.py.pdf){:target="_blank" rel="noopener"}
+
+- declaring variables with stored values
+
+[Wordle Puzzle Game](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign10.py.pdf){:target="_blank" rel="noopener"}
+
+-string values
+
+[Directories](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign11.py.pdf){:target="_blank" rel="noopener"}
+
+-Basic dictionary/ reading stored values
+
+[Draw a Rectangle](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign12.py.pdf){:target="_blank" rel="noopener"}
+
+-Intro to classes
+
+
 ### SQL - Code basics
 [Definitions](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf){:target="_blank" rel="noopener"}
 
@@ -60,7 +85,30 @@
 
 -Sub Queries with various operators 
 
+[Identify 1to1/1tomany relationships](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2010.pdf){:target="_blank" rel="noopener"}
 
+-Short answer, no code
+
+[TABLES](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2011.pdf){:target="_blank" rel="noopener"}
+
+-CREATE/MODIFY/INSERT/SET/DELETE using tables
+
+[Using % Opperator](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2012.pdf){:target="_blank" rel="noopener"}
+
+-finding results within strings
+
+
+[CREATE VIEW](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2013.pdf){:target="_blank" rel="noopener"}
+
+-Create and replace views
+
+[DB Management Definitions](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2014.pdf){:target="_blank" rel="noopener"}
+
+-Grant revoke commit rollback
+
+[OLD METHODS](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2015.pdf){:target="_blank" rel="noopener"}
+
+- Implicit joins
 
 
 The above excersises are from Kathy Herring Hayashi and Steve Perry - Palomar College
