@@ -6,6 +6,10 @@
 
 [PYTHON IMPORTS](Modules.md)
 
+[PROJECTS](Projects.md)
+
+[Other skills](Misc.md)
+
 ![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
 
 ## About Me
