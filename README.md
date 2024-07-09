@@ -6,9 +6,11 @@
 
 [PYTHON IMPORTS](Modules.md)
 
+[EXCEL SKILLS]()
+
 [PROJECTS](Projects.md)
 
-[Other skills](Misc.md)
+[OTHER SKILLS](Misc.md)
 
 ![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
 
