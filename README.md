@@ -6,7 +6,7 @@
 
 [PYTHON IMPORTS](Modules.md)
 
-[EXCEL SKILLS]()
+[EXCEL SKILLS](Excel.md)
 
 [PROJECTS](Projects.md)
 
