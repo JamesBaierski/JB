@@ -41,6 +41,8 @@
 
 [Directories](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign11.py.pdf){:target="_blank" rel="noopener"}
 
+The above excersises are from Kathy Herring Hayashi - Palomar College
+
 -Basic dictionary/ reading stored values
 
 [Draw a Rectangle](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign12.py.pdf){:target="_blank" rel="noopener"}
