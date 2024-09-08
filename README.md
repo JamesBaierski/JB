@@ -6,7 +6,9 @@
 
 [PYTHON MODULES](Modules.md)
 
-[SQL AND PYTHON SKILLS/BASICS](Skills.md)
+[PYTHON BASICS](Python.md)
+
+[SQL BASICS](SQL.md)
 
 [OTHER SKILLS](Misc.md)
 
