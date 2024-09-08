@@ -2,13 +2,11 @@
 
 ### Technical Skills : MS Excel, Python, SQL, PowerBI
 
-[SQL AND PYTHON SKILLS/BASICS](Skills.md)
-
-[PYTHON IMPORTS](Modules.md)
-
-[EXCEL SKILLS](Excel.md)
-
 [PROJECTS](Projects.md)
+
+[PYTHON MODULES](Modules.md)
+
+[SQL AND PYTHON SKILLS/BASICS](Skills.md)
 
 [OTHER SKILLS](Misc.md)
 
