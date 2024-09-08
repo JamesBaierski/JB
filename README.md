@@ -2,7 +2,7 @@
 
 ### Technical Skills : MS Excel, Python, SQL, PowerBI
 
-[PROJECTS](Projects.md)
+[DATA SETS](Projects.md)
 
 [PYTHON MODULES](Modules.md)
 
