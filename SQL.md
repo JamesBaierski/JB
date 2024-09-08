@@ -1,4 +1,6 @@
-### SQL - Code basics
+[Back to Main Page](README.md)
+
+# SQL - Code basics
 [Definitions](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf){:target="_blank" rel="noopener"}
 
  -Basic definitions: Entity, Null value and Primary key
