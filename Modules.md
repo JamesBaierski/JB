@@ -1,7 +1,7 @@
 [Back to Main Page](README.md)
 
 #Selenium
-[Open Goolge and Search](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20IMPORTS/Selenium_Google_Search.pdf){:target="_blank" rel="noopener"}
+[Goolge and Search](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20IMPORTS/Selenium_Google_Search.pdf){:target="_blank" rel="noopener"}
 
 #PyPDF for pdf manipulation
 [PDF BASICS](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20IMPORTS/PDFS%20in%20Python.pdf){:target="_blank" rel="noopener"}
