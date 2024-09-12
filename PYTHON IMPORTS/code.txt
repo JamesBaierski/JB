@@ -1,0 +1,66 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import pandas as pd
+import time
+
+a = []
+b = []
+c = []
+urls = ['https://www.pitviper.com/collections/the-showroom',
+'https://www.pitviper.com/collections/the-exciters',
+'https://www.pitviper.com/collections/the-limousine',
+'https://www.pitviper.com/collections/the-fondue',
+'https://www.pitviper.com/collections/the-slammer',
+'https://www.pitviper.com/collections/the-xs-youth',
+'https://www.pitviper.com/collections/the-baby-vipes',
+'https://www.pitviper.com/collections/the-lift-offs',
+'https://www.pitviper.com/collections/the-flip-offs',
+'https://www.pitviper.com/collections/the-clawdia',
+'https://www.pitviper.com/collections/the-skysurfer',
+'https://www.pitviper.com/collections/flight-optics',
+'https://www.pitviper.com/collections/the-try-hard',
+'https://www.pitviper.com/collections/the-admirer',
+'https://www.pitviper.com/collections/the-jethawk',
+'https://www.pitviper.com/collections/the-synthesizer',
+'https://www.pitviper.com/collections/the-pit-viper-2000s',
+'https://www.pitviper.com/collections/the-original',
+'https://www.pitviper.com/collections/the-low-bones']
+
+for url in urls:
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    driver.get(url)
+    time.sleep(5)
+    
+    #agree to cookies
+    got_it = driver.find_element(By.XPATH , '//*[@id="cookies-submit"]')
+    got_it.click()
+    time.sleep(5)
+
+    #
+    glasses = driver.find_elements(By.CLASS_NAME , 'product-card' )
+
+    for glass in glasses:
+        name = glass.find_element(By.TAG_NAME,'h3').text
+        model = glass.find_element(By.TAG_NAME , 'p').text
+        price = glass.find_element(By.TAG_NAME , 'span').text 
+        a.append(name)
+        b.append(model)
+        c.append(price)
+        pit_data = {'Name' : a ,
+                'Model' : b,
+                'Price': c}
+
+
+df = pd.DataFrame(pit_data)
+print(df)
+df.to_csv('pitviperproductdata.csv')
+time.sleep(5)
+driver.close()
+
+
+    
+
+
