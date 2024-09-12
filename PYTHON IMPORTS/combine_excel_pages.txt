@@ -1,0 +1,32 @@
+from pathlib import Path
+import xlwings as xw 
+import glob as glob
+import pandas as pd
+# target dir looking for all files
+target_dir = ('//Departments//Collectors////2024//08-August 2024//*.xlsx') 
+#grouping all together
+excel_files = glob.glob(target_dir)
+
+print(excel_files)
+
+dfNEW = pd.DataFrame()
+
+for excel_file in excel_files:
+    df = pd.read_excel(excel_file)
+    dfNEW = pd.concat([dfNEW , df])
+
+dfNEWNEW = dfNEW.dropna(how = 'all')
+dfNEWNEW.fillna(value='X' , inplace= True)
+dfNEWNEW.to_excel('//Departmentg//2024//08-August 2024//All August data.xlsx' , index = False)
+
+
+
+
+
+
+
+
+
+
+
+
