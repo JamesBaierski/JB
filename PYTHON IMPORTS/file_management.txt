@@ -1,0 +1,113 @@
+import shutil
+import os
+import re
+import time
+import glob as glob
+import pandas as pd
+
+account_name_start_list = []
+account_name_split_list = []
+account_num_list = []
+names_list = []
+person = []
+
+# Define the directory path you want to check/create
+def make_directory(directory_path):
+# Check if the directory exists
+    if not os.path.exists(directory_path):
+        # Directory does not exist, create it
+        os.makedirs(directory_path)
+        print(f" !SUCCESS! - Directory created: {directory_path}")
+    else:
+        # Directory already exists
+        print(f"Directory already exists: {directory_path}")
+    return directory_path
+
+
+# Function to move a directory from source to destination
+def move_directory(src, dst):
+    try:
+        shutil.move(src, dst)
+        print(f"Directory moved from {src} to {dst} successfully.")
+    except Exception as e:
+        print(f"Error in moving: {e}")
+    return src , dst 
+
+
+def file_name_start(directory):
+    for file_name in glob.glob(directory):
+        account_name_start_list.append(file_name)
+    #print(account_name_start_list)
+
+
+def split_file_name(directory):
+    try: 
+        for file_name in glob.glob(directory):
+            result = re.split(r'(\d+)', file_name )
+            account_name_split_list.append(result)
+    except Exception as e:
+        print(f'File did not split{e}')
+    return account_name_split_list
+
+
+def get_file_num(account_name_split_list):
+    try:
+        for number in account_name_split_list:
+            account_num_list.append(number[1])
+    except Exception as e:
+        print('!!!File Does Not Have Number!!!')
+
+
+def get_name(account_name_split_list):
+    try:
+        for name in account_name_split_list:
+            names_list.append(name[0])
+    except Exception as e:
+        print('!!!File Does Not Have Number!!!')
+
+    return names_list
+
+def split_file_name_trim(directory):
+    delimiter = r'\\'
+    try: 
+        for name in names_list:
+            result = re.split(delimiter, name )
+            person.append(result[-1])
+    except Exception as e:
+        print(f'File did not split{e}')
+    return account_name_split_list
+
+#renaming files
+def rename_files(old_name , new_name):
+    try:
+        os.rename(old_name, new_name)
+        print(f"File renamed from {old_name} to {new_name}")
+    except Exception as e:
+        print(f"Error in renaming: {e}")
+    return new_name
+
+
+directory = 
+
+file_name_start(directory)
+split_file_name(directory)
+get_file_num(account_name_split_list)
+get_name(account_name_split_list)
+split_file_name_trim(directory)
+
+data = {'File Number': account_num_list, 
+        
+        'Name' : person,
+        
+        'File Name Start': account_name_start_list , 
+        
+        'File Name Split': account_name_split_list , 
+        
+        'File Location' : names_list}
+
+df = pd.DataFrame(data)
+print(df)
+df.head(5)
+
+
+ 
