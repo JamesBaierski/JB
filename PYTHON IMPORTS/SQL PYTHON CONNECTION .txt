@@ -1,0 +1,33 @@
+import pandas as pd
+from sqlalchemy import create_engine
+
+# Replace these with your database credentials
+server = ''  # e.g., 'localhost' or '192.168.1.1'
+database = ''
+
+# Create a database connection string. This is for windows authenticated method
+connection_string = (
+    f'mssql+pyodbc://{server}/{database}'
+    f'?driver=ODBC+Driver+17+for+SQL+Server;'
+    'Trusted_Connection=yes;'
+)
+
+# Create an SQLAlchemy engine
+engine = create_engine(connection_string)
+
+# Define your SQL query
+query = '''rthrthrthrthrthrhtrrthrthrthrthrth;'''
+
+# Execute the query and load the results into a DataFrame
+df = pd.read_sql(query, engine)
+
+# Close the engine connection (optional, but good practice)
+engine.dispose()
+
+# Display the DataFrame
+print(df)
+df.to_csv('FILE NAME.csv')
+
+
+
+
