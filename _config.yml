@@ -1,78 +1,32 @@
 # Site settings
 title: James Baierski
-description: >- # Use '>' for multiline text, '-' to strip newlines
-  Personal website and portfolio of James Baierski
-url: ""https://jamesbaierski.github.io"" # Add your site URL here
-baseurl: "/JB" # Subpath of your site, e.g. /blog
+description: Personal website and portfolio
+url: "https://jamesbaierski.github.io"
+baseurl: ""
 
-# Author information
-author:
-  name: James Baierski
-  email: # Add your email if desired
-  
 # Build settings
 theme: jekyll-theme-minimal
 markdown: kramdown
-kramdown:
-  input: Kramdown
-  syntax_highlighter: rouge
-  
-# Plugin settings
+
+# Basic plugins for SEO and feeds
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-sitemap
-
-# Social media links
-show_socials: true
-social_links:
-  github: # your GitHub username
-  linkedin: # your LinkedIn username
-  twitter: # your Twitter username
 
 # Navigation
 header_pages:
   - about.md
   - projects.md
-  - contact.md
 
-# Layout settings
-show_downloads: false
-google_analytics: # Add your GA tracking ID
+# Social links
+github_username: # your GitHub username
+linkedin_username: # your LinkedIn username
 
-# Collections
-collections:
-  projects:
-    output: true
-    permalink: /projects/:path/
-  posts:
-    output: true
-    permalink: /blog/:year/:month/:day/:title/
+# Include README in build
+include:
+  - README.md
 
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      comments: true
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
-  - scope:
-      path: ""
-    values:
-      layout: "default"
-
-# Exclude files from processing
+# Exclude development-related files
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor
-  - README.md
-  - LICENSE
-  - CNAME
