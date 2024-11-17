@@ -1,6 +1,6 @@
 # Site settings
 title: James Baierski
-description: Personal website and portfolio
+description: Personal website and technical portfolio
 url: "https://jamesbaierski.github.io"
 baseurl: ""
 
@@ -8,25 +8,41 @@ baseurl: ""
 theme: jekyll-theme-minimal
 markdown: kramdown
 
+# Navigation structure
+header_pages:
+  - Python.md
+  - SQL.md
+  - Excel.md
+  - Projects.md
+  - Skills.md
+  - Modules.md
+  - Misc.md
+
+# Include specific files and directories
+include:
+  - IMAGES GITHUB/
+  - PYTHON BASICS/
+  - PYTHON IMPORTS/
+  - SQL BASICS/
+  - README.md
+  - Python.md
+  - SQL.md
+  - Excel.md
+  - Projects.md
+  - Skills.md
+  - Modules.md
+  - Misc.md
+  - _config.yml
+
 # Basic plugins for SEO and feeds
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Navigation
-header_pages:
-  - about.md
-  - projects.md
-
-# Social links
-github_username: # your GitHub username
-linkedin_username: # your LinkedIn username
-
-# Include README in build
-include:
-  - README.md
-
 # Exclude development-related files
 exclude:
   - Gemfile
   - Gemfile.lock
+
+# Social links
+github_username: JamesBaierski
