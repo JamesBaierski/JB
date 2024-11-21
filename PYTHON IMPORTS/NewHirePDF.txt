@@ -1,0 +1,113 @@
+import os
+import shutil
+import time
+from pathlib import Path
+from datetime import datetime
+
+def create_timestamped_folder(base_path: str) -> Path:
+    """Create a new folder with timestamp as name"""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    folder_path = Path(base_path) / timestamp
+    folder_path.mkdir(parents=True, exist_ok=True)
+    return folder_path
+
+def create_log_file():
+    """Create a new log file with timestamp in the specified directory"""
+    log_dir = r"C:\Users\J-Baierski\Desktop\Data_Logs\Proof_log"
+    Path(log_dir).mkdir(parents=True, exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_file = Path(log_dir) / f"file_move_log_{timestamp}.txt"
+    
+    return log_file
+
+def log_operation(log_file, message):
+    """Write a message to the log file with timestamp"""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open(log_file, 'a', encoding='utf-8') as f:
+        f.write(f"[{timestamp}] {message}\n")
+
+def move_pdf_files(source_dir: str, destination_base_dir: str) -> tuple:
+    """
+    Move PDF files to a timestamped folder and create detailed logs.
+    Returns tuple of (number of files moved, total size moved in bytes, log file path)
+    """
+    # Create timestamped destination folder
+    destination_dir = create_timestamped_folder(destination_base_dir)
+    
+    # Create log file
+    log_file = create_log_file()
+    
+    start_time = time.time()
+    files_moved = 0
+    total_size = 0
+    
+    # Log start of operation
+    log_operation(log_file, f"Starting file move operation")
+    log_operation(log_file, f"Source directory: {source_dir}")
+    log_operation(log_file, f"Destination directory: {destination_dir}")
+    
+    try:
+        # Get list of PDF files
+        pdf_files = list(Path(source_dir).glob("**/*.pdf"))
+        log_operation(log_file, f"Found {len(pdf_files)} PDF files to move")
+        
+        # Process each file
+        for pdf_file in pdf_files:
+            try:
+                # Calculate relative path to maintain directory structure
+                rel_path = pdf_file.relative_to(source_dir)
+                dest_path = destination_dir / rel_path
+                
+                # Create parent directories if needed
+                dest_path.parent.mkdir(parents=True, exist_ok=True)
+                
+                # Get file size before moving
+                file_size = pdf_file.stat().st_size
+                
+                # Move the file
+                shutil.move(str(pdf_file), str(dest_path))
+                
+                # Update counters
+                total_size += file_size
+                files_moved += 1
+                
+                # Log successful move
+                log_operation(log_file, f"Moved: {pdf_file}")
+                log_operation(log_file, f"  To: {dest_path}")
+                log_operation(log_file, f"  Size: {file_size:,} bytes")
+                
+            except Exception as e:
+                # Log any errors for individual files
+                log_operation(log_file, f"ERROR moving {pdf_file}: {str(e)}")
+                
+    except Exception as e:
+        # Log general errors
+        log_operation(log_file, f"CRITICAL ERROR: {str(e)}")
+        raise
+    
+    # Calculate and log summary statistics
+    duration = time.time() - start_time
+    speed = total_size / duration if duration > 0 else 0
+    
+    log_operation(log_file, "\nOperation Summary:")
+    log_operation(log_file, f"Files moved: {files_moved}")
+    log_operation(log_file, f"Total size: {total_size:,} bytes")
+    log_operation(log_file, f"Duration: {duration:.2f} seconds")
+    log_operation(log_file, f"Average speed: {speed/1048576:.2f} MB/s")
+    
+    return files_moved, total_size, log_file, destination_dir
+
+if __name__ == "__main__":
+    # Example usage - replace with your actual paths
+    source = r"C:\Users\J-Baierski\Desktop\ABC__FTPdata_112024\Filings - Copy"
+    destination_base = r"S:\Departments\Paralegals\ProVest\REPORTS"  # Files will go into a timestamped subfolder
+    
+    try:
+        files, size, log_file, dest_folder = move_pdf_files(source, destination_base)
+        print(f"Operation completed successfully!")
+        print(f"Moved {files} files ({size/1048576:.2f} MB)")
+        print(f"Files moved to: {dest_folder}")
+        print(f"Log file created at: {log_file}")
+    except Exception as e:
+        print(f"Error: {str(e)}")
