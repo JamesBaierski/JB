@@ -1,0 +1,208 @@
+import os
+from datetime import datetime
+
+def transform_filename(filename):
+    """
+    Transforms filename from any format with underscore
+    to '123456 TEXT'
+    Maintains .pdf extension if present
+    """
+    # Check if file has .pdf extension
+    has_pdf = filename.lower().endswith('.pdf')
+    base_name = filename[:-4] if has_pdf else filename
+    
+    # Split the filename by underscores
+    parts = base_name.split('_')
+    
+    # Check if we have at least 2 parts and first part is numeric
+    if len(parts) < 2 or not parts[0].isdigit():
+        return filename
+        
+    # Take the first number and capitalize the text
+    new_name = f"{parts[0]} {parts[1].upper()}"
+    
+    # Add back .pdf if it was present
+    if has_pdf:
+        new_name += '.pdf'
+    
+    return new_name
+
+def get_unique_filename(directory, filename):
+    """
+    Returns a unique filename by adding a number suffix if necessary.
+    Example: if 'file.pdf' exists, returns 'file 2.pdf'
+    """
+    if not os.path.exists(os.path.join(directory, filename)):
+        return filename
+        
+    # Split filename into name and extension
+    name, ext = os.path.splitext(filename)
+    counter = 2  # Start at 2 for first duplicate
+    
+    # Keep trying new numbers until we find a unique filename
+    while True:
+        new_filename = f"{name} {counter}{ext}"
+        if not os.path.exists(os.path.join(directory, new_filename)):
+            return new_filename
+        counter += 1
+
+def get_timestamp():
+    """Returns formatted timestamp for logging"""
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+
+def rename_files_in_directory(directory_path):
+    """
+    Renames all files in the specified directory according to the new format
+    and creates a detailed timestamped log file in the specified logs directory.
+    Handles duplicate filenames by adding numbered suffixes starting at 2.
+    """
+    # Define logs directory
+    logs_dir = r"C:\Users\J-Baierski\Desktop\Data_Logs"
+    
+    # Create logs directory if it doesn't exist
+    if not os.path.exists(logs_dir):
+        os.makedirs(logs_dir)
+    
+    # Create log file name with timestamp
+    start_time = datetime.now()
+    log_filename = f"rename_log_{start_time.strftime('%Y%m%d_%H%M%S')}.txt"
+    log_path = os.path.join(logs_dir, log_filename)
+    
+    # Initialize counters and lists for tracking changes
+    successful_renames = 0
+    skipped_files = 0
+    errors = 0
+    duplicate_handled = 0
+    changes_made = []
+    skipped_list = []
+    error_list = []
+    duplicate_list = []
+    
+    with open(log_path, 'w', encoding='utf-8') as log_file:
+        # Write header
+        log_file.write(f"File Rename Operation Log\n")
+        log_file.write(f"Start Time: {get_timestamp()}\n")
+        log_file.write(f"Target Directory: {directory_path}\n")
+        log_file.write("-" * 80 + "\n\n")
+        
+        # Get list of all files in directory
+        try:
+            files = os.listdir(directory_path)
+            log_file.write(f"[{get_timestamp()}] Found {len(files)} files in directory\n\n")
+        except Exception as e:
+            log_file.write(f"[{get_timestamp()}] Error accessing directory: {e}\n")
+            return
+
+        # First pass: Transform all filenames and check for potential duplicates
+        potential_renames = {}
+        for filename in files:
+            old_path = os.path.join(directory_path, filename)
+            
+            # Skip if it's a directory
+            if os.path.isdir(old_path):
+                skipped_list.append(f"Directory: {filename}")
+                skipped_files += 1
+                continue
+                
+            # Get new filename
+            new_filename = transform_filename(filename)
+            
+            # Skip if filename doesn't need to be changed
+            if new_filename == filename:
+                skipped_list.append(f"No change needed: {filename}")
+                skipped_files += 1
+                continue
+                
+            potential_renames[filename] = new_filename
+
+        # Second pass: Actually perform the renames with duplicate handling
+        for old_filename, new_filename in potential_renames.items():
+            old_path = os.path.join(directory_path, old_filename)
+            
+            # Get unique filename if necessary
+            final_filename = get_unique_filename(directory_path, new_filename)
+            new_path = os.path.join(directory_path, final_filename)
+            
+            # Log if duplicate handling was needed
+            if final_filename != new_filename:
+                duplicate_detail = {
+                    'timestamp': get_timestamp(),
+                    'original_name': old_filename,
+                    'intended_name': new_filename,
+                    'final_name': final_filename
+                }
+                duplicate_list.append(duplicate_detail)
+                duplicate_handled += 1
+            
+            # Rename file
+            try:
+                os.rename(old_path, new_path)
+                change_detail = {
+                    'timestamp': get_timestamp(),
+                    'old_name': old_filename,
+                    'new_name': final_filename,
+                    'full_old_path': old_path,
+                    'full_new_path': new_path
+                }
+                changes_made.append(change_detail)
+                successful_renames += 1
+            except Exception as e:
+                error_detail = f"Error renaming {old_filename}: {str(e)}"
+                error_list.append(error_detail)
+                errors += 1
+
+        # Write detailed logs
+        if changes_made:
+            log_file.write("Successful Renames:\n")
+            log_file.write("-" * 80 + "\n")
+            for change in changes_made:
+                log_file.write(f"[{change['timestamp']}]\n")
+                log_file.write(f"Original filename: {change['old_name']}\n")
+                log_file.write(f"New filename: {change['new_name']}\n")
+                log_file.write(f"Original path: {change['full_old_path']}\n")
+                log_file.write(f"New path: {change['full_new_path']}\n")
+                log_file.write("-" * 40 + "\n")
+        
+        if duplicate_list:
+            log_file.write("\nDuplicate Handling:\n")
+            log_file.write("-" * 80 + "\n")
+            for dup in duplicate_list:
+                log_file.write(f"[{dup['timestamp']}]\n")
+                log_file.write(f"Original filename: {dup['original_name']}\n")
+                log_file.write(f"Intended new name: {dup['intended_name']}\n")
+                log_file.write(f"Final name (with number): {dup['final_name']}\n")
+                log_file.write("-" * 40 + "\n")
+        
+        if skipped_list:
+            log_file.write("\nSkipped Files:\n")
+            log_file.write("-" * 80 + "\n")
+            for skip in skipped_list:
+                log_file.write(f"[{get_timestamp()}] {skip}\n")
+        
+        if error_list:
+            log_file.write("\nErrors:\n")
+            log_file.write("-" * 80 + "\n")
+            for error in error_list:
+                log_file.write(f"[{get_timestamp()}] {error}\n")
+
+        # Calculate duration
+        end_time = datetime.now()
+        duration = end_time - start_time
+        
+        # Write summary
+        log_file.write(f"\nOperation Summary:\n")
+        log_file.write("-" * 80 + "\n")
+        log_file.write(f"Start Time: {start_time.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}\n")
+        log_file.write(f"End Time: {end_time.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}\n")
+        log_file.write(f"Duration: {duration.total_seconds():.3f} seconds\n")
+        log_file.write(f"Total files processed: {len(files)}\n")
+        log_file.write(f"Successfully renamed: {successful_renames}\n")
+        log_file.write(f"Duplicate files handled: {duplicate_handled}\n")
+        log_file.write(f"Skipped files: {skipped_files}\n")
+        log_file.write(f"Errors encountered: {errors}\n")
+        
+        print(f"Operation complete. Log file created: {os.path.join(logs_dir, log_filename)}")
+
+# Example usage
+directory = r"C:\Users\J-Baierski\Desktop\ABC__FTPdata_112024\Filings - Copy"  # Replace with your directory path
+rename_files_in_directory(directory)
