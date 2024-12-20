@@ -1,0 +1,35 @@
+import PyPDF2
+from PyPDF2 import PdfReader , PdfWriter
+import os
+len(read.pages)
+
+file = open(dir , 'rb')
+read = PdfReader(file)
+
+def split_pdf_by_sets(pdf_path, pages_per_set=5):
+    with open(pdf_path, 'rb') as f:
+        read = PdfReader(f)
+        total_pages = len(read.pages)
+        
+        # Calculate how many sets we'll need
+        for start_idx in range(0, total_pages, pages_per_set):
+            writer = PdfWriter()
+            
+            # Calculate end index for current set
+            end_idx = min(start_idx + pages_per_set, total_pages)
+            
+            # Add pages for current set
+            for i in range(start_idx, end_idx):
+                ith_page = read.pages[i]
+                writer.add_page(ith_page)
+            
+            # Generate output filename
+            filename = os.path.splitext(pdf_path)[0]
+            output_filename = f'{filename}_{start_idx+1}_to_{end_idx}.pdf'
+            
+            # Save current set
+            with open(output_filename, 'wb') as out_f:
+                writer.write(out_f)
+
+# Usage
+split_pdf_by_sets(dir)
