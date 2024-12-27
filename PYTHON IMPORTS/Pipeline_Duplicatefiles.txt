@@ -2,7 +2,7 @@ import os
 import shutil
 from pathlib import Path
 from typing import List, Union
-import datetime
+from datetime import datetime
 
 def copy_directory_contents(source_path: str, destinations: List[Union[str, Path]]):
     """
@@ -53,14 +53,13 @@ def copy_directory_contents(source_path: str, destinations: List[Union[str, Path
 
 if __name__ == "__main__":
     # Source directory
-    SOURCE_DIRECTORY = r"C:\Users\J-Baierski\Desktop\TEST"
-    current_datetime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")  # Changed format to be file-system friendly
+    SOURCE_DIRECTORY = r"C:\Users\J-Baierski\OneDrive - Reese Law Group\Desktop\Target\duptest_copy_1"
     
     # List of destination paths
     DESTINATIONS = [
-        fr"C:\Users\J-Baierski\OneDrive - \Desktop\Target\MFiles_{current_datetime}",
-        fr"C:\Users\J-Baierski\OneDrive - \Desktop\Target\OM_{current_datetime}",
-        fr"C:\Users\J-Baierski\OneDrive - \Desktop\Target\Wells_fargo_{current_datetime}"
+        r"C:\Users\J-Baierski\OneDrive - Reese Law Group\Desktop\OneMain_copy",
+        r"C:\Users\J-Baierski\OneDrive - Reese Law Group\Desktop\Wells_copy",
+        r"\\vm24-mfiles.rlgnet.lan\Watch_Folder"
     ]
     
     try:
