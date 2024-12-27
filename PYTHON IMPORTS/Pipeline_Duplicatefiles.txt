@@ -53,13 +53,13 @@ def copy_directory_contents(source_path: str, destinations: List[Union[str, Path
 
 if __name__ == "__main__":
     # Source directory
-    SOURCE_DIRECTORY = r"C:\Users\J-Baierski\OneDrive - Reese Law Group\Desktop\Target\duptest_copy_1"
+    SOURCE_DIRECTORY = r"C:\Users\J-Baierski\OneDrive\Desktop\Target\duptest_copy_1"
     
     # List of destination paths
     DESTINATIONS = [
-        r"C:\Users\J-Baierski\OneDrive - Reese Law Group\Desktop\OneMain_copy",
-        r"C:\Users\J-Baierski\OneDrive - Reese Law Group\Desktop\Wells_copy",
-        r"\\vm24-mfiles.rlgnet.lan\Watch_Folder"
+        r"C:\Users\J-Baierski\OneDrive - \Desktop\OneMain_copy",
+        r"C:\Users\J-Baierski\OneDrive - \Desktop\Wells_copy",
+        r"C:\Users\J-Baierski\OneDrive - \Desktop\Wells_copy"
     ]
     
     try:
