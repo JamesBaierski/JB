@@ -1,0 +1,69 @@
+import os
+import shutil
+from pathlib import Path
+from typing import List, Union
+import datetime
+
+def copy_directory_contents(source_path: str, destinations: List[Union[str, Path]]):
+    """
+    Copies the contents of a source directory to multiple destination directories.
+    
+    Args:
+        source_path (str): Path to the source directory containing files to copy
+        destinations (List[Union[str, Path]]): List of destination paths where files will be copied
+    """
+    # Convert source to Path object and resolve to absolute path
+    source = Path(source_path).resolve()
+    
+    # Check if source exists and is a directory
+    if not source.is_dir():
+        raise ValueError(f"Source '{source}' is not a valid directory")
+    
+    # Process each destination
+    for i, dest in enumerate(destinations, 1):
+        # Convert destination to Path object and resolve
+        destination = Path(dest).resolve()
+        
+        # Create destination directory if it doesn't exist
+        destination.mkdir(parents=True, exist_ok=True)
+        
+        try:
+            # Iterate through all items in source directory
+            for item in source.iterdir():
+                # Construct target path
+                target = destination / item.name
+                
+                # Handle existing files/directories
+                if target.exists():
+                    print(f"Warning: '{target}' already exists, skipping...")
+                    continue
+                
+                # Copy files and directories
+                if item.is_file():
+                    shutil.copy2(item, target)
+                elif item.is_dir():
+                    shutil.copytree(item, target)
+                    
+                print(f"Copied {item.name} to {destination}")
+                
+            print(f"\nCompleted copy to destination {i}: {destination}")
+            
+        except Exception as e:
+            print(f"Error copying to destination {i}: {e}")
+
+if __name__ == "__main__":
+    # Source directory
+    SOURCE_DIRECTORY = r"C:\Users\J-Baierski\Desktop\TEST"
+    current_datetime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")  # Changed format to be file-system friendly
+    
+    # List of destination paths
+    DESTINATIONS = [
+        fr"C:\Users\J-Baierski\OneDrive - \Desktop\Target\MFiles_{current_datetime}",
+        fr"C:\Users\J-Baierski\OneDrive - \Desktop\Target\OM_{current_datetime}",
+        fr"C:\Users\J-Baierski\OneDrive - \Desktop\Target\Wells_fargo_{current_datetime}"
+    ]
+    
+    try:
+        copy_directory_contents(SOURCE_DIRECTORY, DESTINATIONS)
+    except Exception as e:
+        print(f"Error: {e}")
