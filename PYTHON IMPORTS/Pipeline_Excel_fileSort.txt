@@ -1,0 +1,226 @@
+import os
+import shutil
+from pathlib import Path
+from typing import Dict, List, Optional, Set
+from dataclasses import dataclass
+from datetime import datetime
+import logging
+from prettytable import PrettyTable
+
+@dataclass
+class FileCategory:
+    name: str
+    patterns: List[str]
+    destination: str
+    priority: int
+
+class ReportSorter:
+    def __init__(self, source_dir: str, output_dir: str):
+        self.source_path = Path(source_dir)
+        self.output_path = Path(output_dir)
+        self.categories = self._initialize_categories()
+        self._setup_logging()
+        
+    def _setup_logging(self):
+        """Configure logging for the sorter"""
+        self.output_path.mkdir(parents=True, exist_ok=True)
+        
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler(self.output_path / 'file_sorter.log'),
+                logging.StreamHandler()
+            ]
+        )
+        self.logger = logging.getLogger(__name__)
+
+    def _initialize_categories(self) -> List[FileCategory]:
+        """Initialize file categories with their patterns and priorities"""
+        return [
+            FileCategory(
+                name="WF Direct Billing Reports",
+                patterns=["WFDirectBillingReport"],
+                destination="WF_Direct_Billing_Reports",
+                priority=1
+            ),
+            FileCategory(
+                name="Billing Reports",
+                patterns=["BillingReport"],
+                destination="Billing_Reports",
+                priority=2
+            ),
+            FileCategory(
+                name="Filing Reports",
+                patterns=["FilingReport", "CourtFiling"],
+                destination="Filing_Reports",
+                priority=3
+            ),
+            FileCategory(
+                name="Service Reports",
+                patterns=["ServiceReport", "ProcessService"],
+                destination="Service_Reports",
+                priority=3
+            ),
+            FileCategory(
+                name="Non-Service Reports",
+                patterns=["NonServiceReport"],
+                destination="Non_Service_Reports",
+                priority=3
+            )
+        ]
+
+    def get_supported_files(self) -> List[Path]:
+        """Get all Excel and CSV files from the source directory"""
+        extensions: Set[str] = {'.xlsx', '.xls', '.csv'}
+        files = []
+        
+        for ext in extensions:
+            files.extend(self.source_path.glob(f'*{ext}'))
+        
+        return files
+
+    def categorize_file(self, filename: str) -> Optional[FileCategory]:
+        """
+        Determine the category of a file based on its name.
+        Uses exact pattern matching and respects category priorities.
+        """
+        matches = []
+        for category in self.categories:
+            for pattern in category.patterns:
+                if pattern in filename:
+                    matches.append((category, category.priority))
+        
+        if matches:
+            return sorted(matches, key=lambda x: x[1])[0][0]
+        return None
+
+    def sort_files(self) -> Dict[str, dict]:
+        """Sort Excel and CSV files into their respective categories"""
+        if not self.source_path.exists():
+            raise FileNotFoundError(f"Source directory '{self.source_path}' not found")
+
+        self.output_path.mkdir(parents=True, exist_ok=True)
+
+        stats = {
+            "summary": {
+                "total_files": 0,
+                "sorted_files": 0,
+                "unmatched_files": 0,
+                "errors": 0,
+            },
+            "categories": {},
+            "file_types": {"excel": 0, "csv": 0},
+            "files_by_category": {}  # New: Track individual files in each category
+        }
+
+        # Initialize category tracking
+        for category in self.categories:
+            stats["categories"][category.name] = 0
+            stats["files_by_category"][category.name] = []
+
+        timestamp = datetime.now().strftime("%Y%m%d")
+        report_files = self.get_supported_files()
+        stats["summary"]["total_files"] = len(report_files)
+        unmatched_files = []
+        unmatched_dir = self.output_path / f"Unmatched_{timestamp}"
+
+        for file_path in report_files:
+            try:
+                # Track file type
+                if file_path.suffix.lower() == '.csv':
+                    stats["file_types"]["csv"] += 1
+                else:
+                    stats["file_types"]["excel"] += 1
+                    
+                category = self.categorize_file(file_path.name)
+                
+                if category:
+                    dest_folder = self.output_path / f"{category.destination}_{timestamp}"
+                    dest_folder.mkdir(parents=True, exist_ok=True)
+                    
+                    # Copy file to destination
+                    shutil.copy2(str(file_path), str(dest_folder / file_path.name))
+                    stats["summary"]["sorted_files"] += 1
+                    stats["categories"][category.name] += 1
+                    stats["files_by_category"][category.name].append(file_path.name)
+                    self.logger.info(f"Copied '{file_path.name}' to {category.name}")
+                else:
+                    unmatched_files.append(file_path.name)
+                    stats["summary"]["unmatched_files"] += 1
+                    unmatched_dir.mkdir(exist_ok=True)
+                    shutil.copy2(str(file_path), str(unmatched_dir / file_path.name))
+
+            except Exception as e:
+                stats["summary"]["errors"] += 1
+                self.logger.error(f"Error processing '{file_path.name}': {str(e)}")
+
+        self._log_summary(stats, unmatched_files)
+        return stats
+
+    def _create_summary_table(self, stats: Dict[str, dict]) -> PrettyTable:
+        """Create a formatted table of sorted files"""
+        table = PrettyTable()
+        table.field_names = ["Category", "File Type", "File Name"]
+        table.align = "l"  # Left align text
+        table.max_width = 50  # Set maximum width for columns
+        
+        # Add files by category
+        for category, files in stats["files_by_category"].items():
+            if files:  # Only show categories with files
+                for file in sorted(files):  # Sort files alphabetically
+                    file_type = "CSV" if file.lower().endswith('.csv') else "Excel"
+                    table.add_row([category, file_type, file])
+        
+        # Add unmatched files if any
+        if stats["summary"]["unmatched_files"] > 0:
+            for file in stats.get("unmatched_files", []):
+                file_type = "CSV" if file.lower().endswith('.csv') else "Excel"
+                table.add_row(["Unmatched", file_type, file])
+                
+        return table
+
+    def _log_summary(self, stats: Dict[str, dict], unmatched_files: List[str]):
+        """Log the summary of the sorting operation"""
+        summary = [
+            "\nFile Sorting Summary:",
+            f"Total files processed: {stats['summary']['total_files']}",
+            f"Successfully sorted: {stats['summary']['sorted_files']}",
+            f"Unmatched files: {stats['summary']['unmatched_files']}",
+            f"Errors encountered: {stats['summary']['errors']}",
+            "\nFile types processed:",
+            f"- Excel files: {stats['file_types']['excel']}",
+            f"- CSV files: {stats['file_types']['csv']}",
+            "\nFiles sorted by category:"
+        ]
+        
+        # Add category-specific counts
+        for category_name, count in stats["categories"].items():
+            if count > 0:
+                summary.append(f"- {category_name}: {count} files")
+        
+        # Add the table of sorted files
+        summary.extend([
+            "\nDetailed File Sorting Results:",
+            str(self._create_summary_table(stats))
+        ])
+        
+        summary.append(f"\nFiles sorted to: {self.output_path}")
+        
+        self.logger.info("\n".join(summary))
+
+def sort_reports(source_dir: str, output_dir: str):
+    """Main function to sort report files"""
+    sorter = ReportSorter(source_dir, output_dir)
+    try:
+        stats = sorter.sort_files()
+        return stats
+    except Exception as e:
+        logging.error(f"Error during sorting: {str(e)}")
+        raise
+
+# Example usage
+if __name__ == "__main__":
+    source_directory = r"C:\Users\J-Baierski\OneDrive - \Desktop\ABC__FTPdata_112024\excel_files"
+    output_directory = r"C:\Users\J-Baierski\OneDrive - \ABC__FTPdata_112024\Sorted_reports"
+    sort_reports(source_directory, output_directory)
