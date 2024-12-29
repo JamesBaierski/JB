@@ -1,22 +1,21 @@
-# File: _layouts/default.html
----
-layout: default
----
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description | default: site.description }}">
     <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="page-container">
         <header class="site-header">
-            <nav class="main-nav">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
                 <a href="{{ '/' | relative_url }}" class="site-title">
                     <span class="title-text">{{ site.title }}</span>
                 </a>
@@ -27,13 +26,11 @@ layout: default
                 </div>
             </nav>
         </header>
-
-        <main class="main-content">
+        <main id="main-content" class="main-content">
             <div class="content-wrapper">
                 {{ content }}
             </div>
         </main>
-
         <footer class="site-footer">
             <div class="footer-content">
                 <p class="copyright">&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
@@ -42,4 +39,3 @@ layout: default
     </div>
 </body>
 </html>
-
