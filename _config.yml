@@ -1,10 +1,8 @@
 # _config.yml
 title: James Baierski
-description: Personal Portfolio & Blog
+description: Professional Portfolio
 baseurl: ""
 url: ""
-github_username: jbaierski
-linkedin_username: jamesbaierski
 
 # Build settings
 markdown: kramdown
@@ -16,38 +14,20 @@ plugins:
 
 # Navigation
 header_pages:
-  - about.md
-  - blog.md
-  - projects.md
-  - contact.md
-
-# Collections
-collections:
-  projects:
-    output: true
-    permalink: /projects/:path/
+  - Excel.md
+  - Misc.md
+  - Modules.md
+  - Projects.md
+  - Python.md
+  - SQL.md
+  - Skills.md
 
 # Default front matter
 defaults:
   - scope:
       path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "James Baierski"
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
-  - scope:
-      path: ""
     values:
       layout: "default"
-
-# Custom settings
-show_excerpts: true
-date_format: "%B %-d, %Y"
 
 # File: _layouts/default.html
 ---
@@ -66,8 +46,8 @@ layout: default
         <nav>
             <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
             <div class="nav-links">
-                {% for page in site.header_pages %}
-                    <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+                {% for item in site.header_pages %}
+                    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
                 {% endfor %}
             </div>
         </nav>
@@ -78,89 +58,53 @@ layout: default
     </main>
 
     <footer>
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
     </footer>
 </body>
 </html>
-
-# File: _layouts/post.html
----
-layout: default
----
-<article class="post">
-    <header class="post-header">
-        <h1>{{ page.title }}</h1>
-        <p class="post-meta">
-            {{ page.date | date: site.date_format }} {% if page.author %}• {{ page.author }}{% endif %}
-        </p>
-    </header>
-
-    <div class="post-content">
-        {{ content }}
-    </div>
-</article>
-
-# File: _layouts/project.html
----
-layout: default
----
-<article class="project">
-    <header class="project-header">
-        <h1>{{ page.title }}</h1>
-        {% if page.github_link %}
-        <a href="{{ page.github_link }}" class="github-link">View on GitHub</a>
-        {% endif %}
-    </header>
-
-    <div class="project-content">
-        {{ content }}
-    </div>
-</article>
 
 # File: assets/css/style.scss
 ---
 ---
 @import "minima";
 
-// Custom styles
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --background-color: #ffffff;
     --text-color: #333333;
-    --link-color: #3498db;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
-}
-
-.site-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
 }
 
 nav {
     padding: 1rem;
     background-color: var(--background-color);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.nav-links {
-    display: flex;
-    gap: 1rem;
     
-    a {
+    .site-title {
+        font-size: 1.5rem;
+        font-weight: bold;
         color: var(--primary-color);
         text-decoration: none;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 1rem;
         
-        &:hover {
-            color: var(--secondary-color);
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            
+            &:hover {
+                color: var(--secondary-color);
+            }
         }
     }
 }
@@ -171,26 +115,6 @@ main {
     padding: 0 1rem;
 }
 
-.post, .project {
-    margin-bottom: 3rem;
-    
-    h1 {
-        color: var(--primary-color);
-    }
-}
-
-.post-meta {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--primary-color);
-    color: white;
-}
-
 # File: index.md
 ---
 layout: default
@@ -199,77 +123,173 @@ title: Home
 
 # Welcome
 
-Hello! I'm James Baierski, a professional focused on building great digital experiences. This site showcases my work and thoughts on technology, design, and development.
+Welcome to my professional portfolio. Here you'll find my expertise across various technical domains including Excel, Python, SQL, and more.
 
-## Recent Posts
-
-{% for post in site.posts limit:3 %}
-* [{{ post.title }}]({{ post.url | relative_url }})
-  {{ post.excerpt }}
-{% endfor %}
-
-## Featured Projects
-
-{% for project in site.projects limit:2 %}
-* [{{ project.title }}]({{ project.url | relative_url }})
-  {{ project.excerpt }}
-{% endfor %}
-
-# File: about.md
+# File: Excel.md
 ---
 layout: page
-title: About
-permalink: /about/
+title: Excel
+permalink: /excel/
 ---
 
-# About Me
+## Excel Expertise
 
-I'm a passionate professional with expertise in technology and development. I believe in creating meaningful digital experiences that make a difference.
+### Advanced Functions
+- Complex formulas and calculations
+- VLOOKUP, INDEX-MATCH, and array formulas
+- Pivot Tables and data analysis
 
-## Experience
+### Automation
+- VBA Macros
+- Excel automation scripts
+- Custom worksheet functions
 
-- Current Role: [Your Current Role]
-- Previous Experience: [Brief Overview]
-- Skills: [Key Skills]
+### Data Analysis
+- Data cleaning and validation
+- Statistical analysis
+- Financial modeling
 
-## Education
-
-- [Degree] from [University]
-- [Relevant Certifications]
-
-# File: contact.md
+# File: Misc.md
 ---
 layout: page
-title: Contact
-permalink: /contact/
+title: Miscellaneous
+permalink: /misc/
 ---
 
-# Get in Touch
+## Additional Skills & Tools
 
-I'm always interested in new opportunities and collaborations. Feel free to reach out through any of the following channels:
+### Version Control
+- Git fundamentals
+- Repository management
+- Collaboration workflows
 
-- Email: [Your Email]
-- LinkedIn: [LinkedIn Profile]
-- GitHub: [GitHub Profile]
+### Project Management
+- Agile methodologies
+- Task tracking
+- Team coordination
 
-# File: _posts/2024-12-28-welcome-post.md
+### Documentation
+- Technical writing
+- API documentation
+- Process documentation
+
+# File: Modules.md
 ---
-layout: post
-title: "Welcome to My New Site"
-date: 2024-12-28
-categories: [announcements]
+layout: page
+title: Modules
+permalink: /modules/
 ---
 
-Welcome to my new website! This space will serve as a platform for sharing my thoughts on technology, development, and various projects I'm working on. Stay tuned for more content!
+## Software Modules
 
-# File: _projects/project1.md
+### Custom Components
+- Reusable code libraries
+- Plugin development
+- API integrations
+
+### Architecture
+- Modular design patterns
+- Component lifecycle
+- Integration strategies
+
+### Documentation
+- Module specifications
+- Usage guidelines
+- API references
+
+# File: Projects.md
 ---
-layout: project
-title: "Project One"
-github_link: "https://github.com/username/project-one"
+layout: page
+title: Projects
+permalink: /projects/
 ---
 
-Description of your first project. Include key features, technologies used, and outcomes achieved.
+## Project Portfolio
+
+### Featured Projects
+[Project details and descriptions will go here]
+
+### Technical Implementations
+- Project scope and objectives
+- Technologies used
+- Outcomes and results
+
+### Case Studies
+- Problem-solving approaches
+- Implementation details
+- Success metrics
+
+# File: Python.md
+---
+layout: page
+title: Python
+permalink: /python/
+---
+
+## Python Development
+
+### Core Skills
+- Object-oriented programming
+- Data structures and algorithms
+- Error handling and debugging
+
+### Frameworks & Libraries
+- Web frameworks (Django, Flask)
+- Data analysis (Pandas, NumPy)
+- Machine learning (Scikit-learn)
+
+### Development Tools
+- Virtual environments
+- Package management
+- Testing frameworks
+
+# File: SQL.md
+---
+layout: page
+title: SQL
+permalink: /sql/
+---
+
+## SQL & Database Management
+
+### Query Development
+- Complex SQL queries
+- Stored procedures
+- Performance optimization
+
+### Database Design
+- Schema design
+- Normalization
+- Index optimization
+
+### Administration
+- Database maintenance
+- Backup and recovery
+- Security management
+
+# File: Skills.md
+---
+layout: page
+title: Skills
+permalink: /skills/
+---
+
+## Technical Proficiencies
+
+### Programming Languages
+- Python
+- SQL
+- VBA
+
+### Data Analysis
+- Excel advanced functions
+- Statistical analysis
+- Data visualization
+
+### Tools & Technologies
+- Version control (Git)
+- Database management
+- Project management tools
 
 # File: .gitignore
 _site
