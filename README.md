@@ -2,17 +2,6 @@
 
 ### Technical Skills : MS Excel, Python, SQL, PowerBI
 
-[DATA SETS](Projects.md)
-
-[PYTHON MODULES](Modules.md)
-
-[PYTHON BASICS](Python.md)
-
-[SQL BASICS](SQL.md)
-
-[OTHER SKILLS](Misc.md)
-
-![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
 
 ## About Me
 
