@@ -1,3 +1,14 @@
-title: Your Name
-description: Your site description
+title: James Baierski
+#logo:
 theme: jekyll-theme-minimal
+permalink: /:title/
+excerpt_separator: '\n\n\n'
+date_format: '%B %d , %Y'
+kramdown:
+  input: Kramdown
+
+show_socials: true
+show_frame: true
+
+external:
+  - {title: LinkedIn, icon: LinkedIn, url: 'https://www.linkedin.com/in/jbaierski'}
