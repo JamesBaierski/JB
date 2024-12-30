@@ -7,8 +7,14 @@ date_format: '%B %d , %Y'
 kramdown:
   input: Kramdown
 
-show_socials: true
-show_frame: true
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jemoji
 
-external:
-  - {title: LinkedIn, icon: LinkedIn, url: 'https://www.linkedin.com/in/jbaierski'}
+platforms:
+  - name: LinkedIn
+    icon: <i class="fa-brands fa-linkedin"></i>
+    link: https://www.linkedin.com/in/jbaierski
+
+
