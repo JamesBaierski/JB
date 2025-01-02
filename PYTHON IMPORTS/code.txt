@@ -38,7 +38,7 @@ for url in urls:
 
 df = pd.DataFrame(pit_data)
 print(df)
-df.to_csv('pitviperproductdata.csv')
+df.to_csv('data.csv')
 time.sleep(5)
 driver.close()
 
