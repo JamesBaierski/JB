@@ -57,9 +57,9 @@ if __name__ == "__main__":
     
     # List of destination paths
     DESTINATIONS = [
-        r"C:\Users\J-Baierski\OneDrive - \Desktop\OneMain_copy",
-        r"C:\Users\J-Baierski\OneDrive - \Desktop\Wells_copy",
-        r"C:\Users\J-Baierski\OneDrive - \Desktop\Wells_copy"
+        r"PATH1",
+        r"PATH2",
+        r"PATH3"
     ]
     
     try:
