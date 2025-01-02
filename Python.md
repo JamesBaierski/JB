@@ -1,48 +1,56 @@
-#Python basic concepts
-
 [Back to Main Page](README.md)
 
-### Python - Code Basics 
-[Tip calculator]([annotated-Baierski_assign1.py.pdf](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign1.py.pdf)){:target="_blank" rel="noopener"}
+# Python Programming Fundamentals
+A comprehensive collection of Python projects demonstrating core programming concepts.
 
--Basic coding , Basic data types
+## Fundamentals & Calculations
+### Tip Calculator
+*Basic data types and arithmetic operations*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign1.py.pdf){:target="_blank" rel="noopener"}
 
-[Shipping Calculator](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign2.py.pdf){:target="_blank" rel="noopener"}
+### Shipping Calculator
+*If statements, logical operators, string comparisons*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign2.py.pdf){:target="_blank" rel="noopener"}
 
--If statements ,logical operators, string comparisons 
+### Enhanced Tip Calculator
+*For/while loops, break/continue statements*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign3.py.pdf){:target="_blank" rel="noopener"}
 
-[tip calculator with loops](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign3.py.pdf){:target="_blank" rel="noopener"}
+## Functions & Variables
+### Measurement Converter
+*Function definition, local vs global variables, data passing*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign4.py.pdf){:target="_blank" rel="noopener"}
 
--for/while loops, break/continue
+### Module Implementation
+*Using imports and external modules*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign5.py.pdf){:target="_blank" rel="noopener"}
 
-[feet and meters converter](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign4.py.pdf){:target="_blank" rel="noopener"}
+## Data Structures
+### Array Operations
+*Array manipulation: add, drop, append*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign6.py.pdf){:target="_blank" rel="noopener"}
 
--define and call functions , local vs global variables , passing data to/from function
+### Dictionary Basics
+*Dictionary operations and value retrieval*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign11.py.pdf){:target="_blank" rel="noopener"}
 
-[Imports](https://github.com/JamesBaierski/Portfolio/blob/main/PYTHON%20BASICS/annotated-Baierski_assign5.py.pdf){:target="_blank" rel="noopener"}
+## Error Handling
+### Exception Management
+*Try/except implementation with functions*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign8-1.py.pdf){:target="_blank" rel="noopener"}
 
--Using imports/ modules
+## Practical Applications
+### Paycheck Calculator
+*Variable declaration with stored values*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign9-4.py.pdf){:target="_blank" rel="noopener"}
 
-[Basic Array functions](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign6.py.pdf){:target="_blank" rel="noopener"}
+### Wordle Game Clone
+*String manipulation and game logic*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign10.py.pdf){:target="_blank" rel="noopener"}
 
--add/drop append array
+### Graphics Basic
+*Simple rectangle drawing program*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign12.py.pdf){:target="_blank" rel="noopener"}
 
-[Intro to Exceptions](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign8-1.py.pdf){:target="_blank" rel="noopener"}
-
--try/except using functions
-
-[Pay Check Calculator](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign9-4.py.pdf){:target="_blank" rel="noopener"}
-
-- declaring variables with stored values
-
-[Wordle Puzzle Game](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign10.py.pdf){:target="_blank" rel="noopener"}
-
--string values
-
-[Directories](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign11.py.pdf){:target="_blank" rel="noopener"}
-
-The above excersises are from Kathy Herring Hayashi - Palomar College
-
--Basic dictionary/ reading stored values
-
-[Draw a Rectangle](https://github.com/JamesBaierski/JB/blob/main/PYTHON%20BASICS/annotated-Baierski_assign12.py.pdf){:target="_blank" rel="noopener"}
+---
+*Projects developed as part of Kathy Herring Hayashi's curriculum at Palomar College*
