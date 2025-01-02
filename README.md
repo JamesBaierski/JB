@@ -1,5 +1,4 @@
 # James Baierski
-## Data Analyst & Mathematics Graduate
 
 ![Profile Banner](IMAGES%20GITHUB/Screenshot%202023-11-05%20184211.png)
 
