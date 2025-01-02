@@ -1,11 +1,9 @@
 # James Baierski
 
 <div align="center">
-[![Projects](https://img.shields.io/badge/View-Projects-blue?style=for-the-badge)](Projects.md)
-[![Python](https://img.shields.io/badge/View-Python-green?style=for-the-badge)](Python.md)
-[![SQL](https://img.shields.io/badge/View-SQL-orange?style=for-the-badge)](SQL.md)
-[![Skills](https://img.shields.io/badge/View-Skills-purple?style=for-the-badge)](Misc.md)
+[Projects](Projects.md) | [Python](Python.md) | [SQL](SQL.md) | [Skills](Misc.md)
 </div>
+
 ![](IMAGES%20GITHUB/Screenshot%202023-11-05%20184211.png)
 
 
