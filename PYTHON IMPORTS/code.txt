@@ -9,25 +9,7 @@ import time
 a = []
 b = []
 c = []
-urls = ['https://www.pitviper.com/collections/the-showroom',
-'https://www.pitviper.com/collections/the-exciters',
-'https://www.pitviper.com/collections/the-limousine',
-'https://www.pitviper.com/collections/the-fondue',
-'https://www.pitviper.com/collections/the-slammer',
-'https://www.pitviper.com/collections/the-xs-youth',
-'https://www.pitviper.com/collections/the-baby-vipes',
-'https://www.pitviper.com/collections/the-lift-offs',
-'https://www.pitviper.com/collections/the-flip-offs',
-'https://www.pitviper.com/collections/the-clawdia',
-'https://www.pitviper.com/collections/the-skysurfer',
-'https://www.pitviper.com/collections/flight-optics',
-'https://www.pitviper.com/collections/the-try-hard',
-'https://www.pitviper.com/collections/the-admirer',
-'https://www.pitviper.com/collections/the-jethawk',
-'https://www.pitviper.com/collections/the-synthesizer',
-'https://www.pitviper.com/collections/the-pit-viper-2000s',
-'https://www.pitviper.com/collections/the-original',
-'https://www.pitviper.com/collections/the-low-bones']
+urls = [ ]
 
 for url in urls:
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
