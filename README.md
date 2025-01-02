@@ -1,30 +1,34 @@
-![](IMAGES GITHUB/Screenshot 2023-11-05 184211.png)
+# James Baierski
+## Data Analyst & Mathematics Graduate
 
-# Data Analyst
+![Profile Banner](IMAGES%20GITHUB/Screenshot%202023-11-05%20184211.png)
 
-### Technical Skills : MS Excel, Python, SQL, PowerBI
+## Navigation
+- [View My Projects](Projects.md)
+- [Python Programming](Python.md)
+- [SQL Development](SQL.md)
+- [Additional Skills](Misc.md)
 
-* * *
-
-* [Projects](Projects.md)
-
-* [PYTHON MODULES](Modules.md)
-
-* [PYTHON BASICS](Python.md)
-
-* [SQL BASICS](SQL.md)
-
-* [OTHER SKILLS](Misc.md)
-
-
+## Technical Expertise
+- **Data Analysis:** Microsoft Excel, PowerBI
+- **Programming:** Python (Pandas, NumPy, Matplotlib)
+- **Database:** SQL (PostgreSQL, MySQL)
+- **Visualization:** PowerBI, Tableau
+- **Version Control:** Git, GitHub
 
 ## About Me
-* * *
+I am a data analyst with a strong foundation in mathematics and programming. My background in mathematics from California State University, Northridge, combined with my technical skills in Python, SQL, and data visualization tools, enables me to transform complex data into actionable insights.
 
-My name is James Baierski. I will be adding my projects and skills to this website over time to showcase my work for potential employers.
+I continuously expand my skill set and add new projects to this portfolio to demonstrate my capabilities in data analysis and problem-solving.
 
-# Education
-* * *
-- Transfer Student | Palomar College, San Marcos, CA |
-- B.S. , Mathematics | California State University, Northridge | Spring '22
+## Education
+### California State University, Northridge
+- **B.S. in Mathematics**
+- Graduated: Spring 2022
 
+### Palomar College, San Marcos, CA
+- Transfer Student
+
+
+---
+*This portfolio is regularly updated with new projects and skills. Feel free to explore my work through the navigation links above.*
