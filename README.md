@@ -1,17 +1,15 @@
-<div align="center">
-
-<div style="background-color: #f8f9fa; padding: 1em; margin: 1em 0; border-radius: 5px;">
-<p align="center">
-<a href="Projects.md" style="padding: 0 1em;">Projects</a> |
-<a href="Python.md" style="padding: 0 1em;">Python</a> |
-<a href="SQL.md" style="padding: 0 1em;">SQL</a> |
-<a href="Misc.md" style="padding: 0 1em;">Skills</a>
-</p>
-</div>
-![Profile Banner](IMAGES%20GITHUB/Screenshot%202023-11-05%20184211.png)
-
-</div>
 # James Baierski
+
+<div align="center">
+[![Projects](https://img.shields.io/badge/View-Projects-blue?style=for-the-badge)](Projects.md)
+[![Python](https://img.shields.io/badge/View-Python-green?style=for-the-badge)](Python.md)
+[![SQL](https://img.shields.io/badge/View-SQL-orange?style=for-the-badge)](SQL.md)
+[![Skills](https://img.shields.io/badge/View-Skills-purple?style=for-the-badge)](Misc.md)
+</div>
+![](IMAGES%20GITHUB/Screenshot%202023-11-05%20184211.png)
+
+
+
 
 ![Profile Banner](IMAGES%20GITHUB/Screenshot%202023-11-05%20184211.png)
 
