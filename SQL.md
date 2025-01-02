@@ -1,67 +1,95 @@
 [Back to Main Page](README.md)
 
-# SQL - Code basics
-[Definitions](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf){:target="_blank" rel="noopener"}
+# SQL Fundamentals
+A comprehensive guide to SQL concepts and database management fundamentals.
 
- -Basic definitions: Entity, Null value and Primary key
+## Core Concepts
+### Database Fundamentals
+*Understanding core database concepts*  
+[View Notes](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%201%20.pdf){:target="_blank" rel="noopener"}
+- Entity relationships
+- Null values
+- Primary keys
 
-[BASIC STATEMENTS](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%202.pdf){:target="_blank" rel="noopener"}
+### Basic SQL Operations
+*Essential SQL commands and operations*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%202.pdf){:target="_blank" rel="noopener"}
+- Data selection techniques
+- Mathematical expressions
+- Result ordering
 
--Basic data selection, basic mathematical expressions,Basic ordering
+## Data Querying
+### Logical Operations
+*Working with operators and conditions*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%203.pdf){:target="_blank" rel="noopener"}
+- Comparison operators
+- NULL value handling
+- Logical expressions
 
-[LOGICAL OPERATORS](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%203.pdf){:target="_blank" rel="noopener"}
+### Advanced Operators
+*Complex filtering and pattern matching*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%208.pdf){:target="_blank" rel="noopener"}
+- IN operator
+- BETWEEN operator
+- LIKE operator
+- [Pattern Matching with %](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2012.pdf){:target="_blank" rel="noopener"}
 
--logical/comparison operators,seaching for NULL values
+## Table Relationships
+### Join Operations
+*Understanding and implementing table joins*  
+[View Basic Joins](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%204.pdf){:target="_blank" rel="noopener"}
+- Foreign key relationships
+- INNER JOIN with USING
+- JOIN with ON clause
+- [Multiple Table Joins](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%206.pdf){:target="_blank" rel="noopener"}
 
-[FORIEGN](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%204.pdf){:target="_blank" rel="noopener"}
+### Relationship Types
+*Database relationship patterns*  
+[View Documentation](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2010.pdf){:target="_blank" rel="noopener"}
+- One-to-One relationships
+- One-to-Many relationships
+- Relationship analysis
 
--Forgien/Primary key, inner joins with the USING clause, join with ON clause
+## Advanced SQL
+### Aggregate Functions
+*Data summarization and grouping*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%205.pdf){:target="_blank" rel="noopener"}
+- COUNT function
+- MIN/MAX operations
+- AVG and SUM calculations
+- Data concatenation
+- [HAVING clause usage](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%207.pdf){:target="_blank" rel="noopener"}
 
-[AGGRE](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%205.pdf){:target="_blank" rel="noopener"}
+### Subqueries
+*Nested query operations*  
+[View Project](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%209.pdf){:target="_blank" rel="noopener"}
+- Subquery implementation
+- Multi-level queries
+- Performance considerations
 
--Aggreate functions: count, min/max, avg, sum, Concatenating data
+## Database Management
+### Table Operations
+*Table creation and modification*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2011.pdf){:target="_blank" rel="noopener"}
+- CREATE TABLE
+- ALTER TABLE
+- INSERT operations
+- DELETE operations
 
-[MULTI JOIN](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%206.pdf){:target="_blank" rel="noopener"}
+### Views and Security
+*Database views and access control*  
+[View Views](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2013.pdf){:target="_blank" rel="noopener"}
+- Creating views
+- Replacing views
+- [Access management](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2014.pdf){:target="_blank" rel="noopener"}
+- GRANT and REVOKE
+- COMMIT and ROLLBACK
 
--join muntiple tables with ON/USING
-
-[HAVING](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%207.pdf){:target="_blank" rel="noopener"}
-
--use HAVING clause, needed when using aggreate functions 
-
-[OPERATIOR](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%208.pdf){:target="_blank" rel="noopener"}
-
--IN/BETWEEN/LIKE operators  
-
-[SUB QUERIES](https://github.com/JamesBaierski/Portfolio/blob/main/SQL%20BASICS/SQL%20assign%209.pdf){:target="_blank" rel="noopener"}
-
--Sub Queries with various operators 
-
-[Identify 1to1/1tomany relationships](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2010.pdf){:target="_blank" rel="noopener"}
-
--Short answer, no code
-
-[TABLES](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2011.pdf){:target="_blank" rel="noopener"}
-
--CREATE/MODIFY/INSERT/SET/DELETE using tables
-
-[Using % Opperator](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2012.pdf){:target="_blank" rel="noopener"}
-
--finding results within strings
-
-
-[CREATE VIEW](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2013.pdf){:target="_blank" rel="noopener"}
-
--Create and replace views
-
-[DB Management Definitions](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2014.pdf){:target="_blank" rel="noopener"}
-
--Grant revoke commit rollback
-
-[OLD METHODS](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2015.pdf){:target="_blank" rel="noopener"}
-
+### Legacy Techniques
+*Historical SQL approaches*  
+[View Project](https://github.com/JamesBaierski/JB/blob/main/SQL%20BASICS/SQL%20assign%2015.pdf){:target="_blank" rel="noopener"}
 - Implicit joins
+- Legacy syntax considerations
 
-
-The above excersises are from  Steve Perry - Palomar College
-
+---
+*Course materials developed by Steve Perry - Palomar College*
