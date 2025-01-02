@@ -1,21 +1,19 @@
 # James Baierski
-
-<div align="center">
-[Projects](Projects.md) | [Python](Python.md) | [SQL](SQL.md) | [Skills](Misc.md)
-</div>
-
-![](IMAGES%20GITHUB/Screenshot%202023-11-05%20184211.png)
-
-
-
+## Data Analyst & Mathematics Graduate
 
 ![Profile Banner](IMAGES%20GITHUB/Screenshot%202023-11-05%20184211.png)
 
+## Navigation
+- [View My Projects](Projects.md)
+- [Python Programming](Python.md)
+- [SQL Development](SQL.md)
+- [Additional Skills](Misc.md)
+
 ## Technical Expertise
 - **Data Analysis:** Microsoft Excel, PowerBI
-- **Programming:** Python 
-- **Database:** SQL (SSMS , PostgreSQL, MySQL)
-- **Visualization:** PowerBI, Tableau, Matplotlib
+- **Programming:** Python (Pandas, NumPy, Matplotlib)
+- **Database:** SQL (PostgreSQL, MySQL)
+- **Visualization:** PowerBI, Tableau
 - **Version Control:** Git, GitHub
 
 ## About Me
@@ -31,6 +29,7 @@ I continuously expand my skill set and add new projects to this portfolio to dem
 
 ### Palomar College, San Marcos, CA
 - Transfer Student
+
 
 
 
