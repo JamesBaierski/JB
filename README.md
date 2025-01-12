@@ -16,13 +16,11 @@
 - **Version Control:** Git, GitHub
 
 ## About Me
-I am a data analyst with a strong foundation in mathematics and programming. My background in mathematics from California State University, Northridge, combined with my technical skills in Python, SQL, and data visualization tools, enables me to transform complex data into actionable insights.
-
 I continuously expand my skill set and add new projects to this portfolio to demonstrate my capabilities in data analysis and problem-solving.
 
 ## Education
 ### California State University, Northridge
-- **B.S. in Mathematics**
+- B.S. in Mathematics
 - Graduated: Spring 2022
 
 
