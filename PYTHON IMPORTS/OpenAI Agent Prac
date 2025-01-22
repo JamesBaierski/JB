@@ -9,7 +9,7 @@ MODEL = "llama-3.2-3b-instruct"
 # Base configuration for all agents
 config_list = [{
     "model": MODEL,
-    "base_url": "http://127.0.0.1:1234/v1",
+    "base_url": "   ",
     "api_key": "lm-studio"
 }]
 
