@@ -1,0 +1,101 @@
+import os
+from autogen import AssistantAgent, UserProxyAgent, GroupChat, GroupChatManager
+from autogen.oai.client import OpenAI
+
+# Configure the LM Studio client
+client = OpenAI(base_url="http://127.0.0.1:1234/v1", api_key="lm-studio")
+MODEL = "llama-3.2-3b-instruct"
+
+# Base configuration for all agents
+config_list = [{
+    "model": MODEL,
+    "base_url": "http://127.0.0.1:1234/v1",
+    "api_key": "lm-studio"
+}]
+
+# Define the local file path
+reference_file_path = r"PATH"
+
+def read_reference_file(file_path):
+    """Read the content of the reference file."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return file.read()
+    except FileNotFoundError:
+        return f"Error: Reference file not found at {file_path}"
+    except Exception as e:
+        return f"Error reading file: {str(e)}"
+
+# Get reference content
+reference_content = read_reference_file(reference_file_path)
+
+# Create specialized agents
+character_creator = AssistantAgent(
+    name="CharacterCreator",
+    llm_config={
+        "config_list": config_list,
+        "temperature": 0.7,
+    },
+    system_message="""You are a character creation specialist. Your role is to:
+    1. Create detailed character profiles including personality, background, motivations
+    2. Ensure characters are well-rounded and complex
+    3. Design character relationships and dynamics
+    4. Consider character arcs and development possibilities
+    5. All characters are cats, living in a world that is only cats. All the strifes that the characters have should be silly problems, but tramatic solutions.
+    Wait for the plot outline before finalizing character arcs."""
+)
+
+plot_designer = AssistantAgent(
+    name="PlotDesigner",
+    llm_config={
+        "config_list": config_list,
+        "temperature": 0.7,
+    },
+    system_message="""You are a plot development specialist. Your role is to:
+    1. Create engaging story structures
+    2. Design plot twists and story arcs
+    3. Ensure proper pacing and story flow
+    4. Integrate character arcs with plot developments
+    Coordinate with the CharacterCreator to ensure character and plot alignment."""
+)
+
+literary_researcher = AssistantAgent(
+    name="LiteraryResearcher",
+    llm_config={
+        "config_list": config_list,
+        "temperature": 0.7,
+    },
+    system_message=f"""You are a literary research specialist. Your role is to:
+    1. Analyze the following reference content: {reference_content}
+    2. Extract relevant themes, motifs, and storytelling techniques
+    3. Suggest ways to incorporate these elements into the story
+    4. Ensure originality while drawing inspiration
+    Share insights with both CharacterCreator and PlotDesigner."""
+)
+
+# Create user proxy with error handling
+user_proxy = UserProxyAgent(
+    name="UserProxy",
+    human_input_mode="TERMINATE",
+    max_consecutive_auto_reply=10,
+    code_execution_config={"use_docker": False}
+)
+
+# Set up the group chat with error handling
+try:
+    agents = [user_proxy, character_creator, plot_designer, literary_researcher]
+    groupchat = GroupChat(agents=agents, messages=[], max_round=50)
+    manager = GroupChatManager(groupchat=groupchat, llm_config={"config_list": config_list})
+
+    # Start the conversation
+    user_proxy.initiate_chat(
+        manager,
+        message="""Let's create a story together. Please coordinate to:
+        1. CharacterCreator: Create 2-3 main characters
+        2. LiteraryResearcher: Review the provided reference content for inspiration
+        3. PlotDesigner: Develop a basic plot outline
+        Work together to weave these elements into a cohesive story."""
+    )
+
+except Exception as e:
+    print(f"An error occurred during chat initialization: {str(e)}")
