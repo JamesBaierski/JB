@@ -3,11 +3,12 @@ from autogen import AssistantAgent, UserProxyAgent, GroupChat, GroupChatManager
 from autogen.oai.client import OpenAI
 
 # Base configuration for all agents
-config_list = [{
-    "model": "hermes-3-llama-3.2-3b",
+config_list = [
+ {  "model": "hermes-3-llama-3.2-3b",
     "base_url": 'http://127.0.0.1:1234/v1',
     "api_key": "lm-studio"
-}]
+}] 
+
 
 # Create specialized agents
 Agent_1 = AssistantAgent(
@@ -58,8 +59,9 @@ Agent_3 = AssistantAgent(
 user_proxy = UserProxyAgent(
     name="UserProxy",
     human_input_mode="TERMINATE",
-    max_consecutive_auto_reply=12, # Maximum number of consecutive auto-replies
-    code_execution_config={"use_docker": False}
+    max_consecutive_auto_reply = 1, # Maximum number of consecutive auto-replies at one time
+    code_execution_config={"use_docker": False} ,
+    default_auto_reply = '...' #When using lmstudio this have to exist in user proxy
 )
 
 # Set up the group chat with error handling
@@ -68,7 +70,7 @@ try:
     groupchat = GroupChat(
             agents=agents,
             messages=[],
-            max_round = 5,  # Increased from 10 to allow for more complex interactions
+            max_round = 4,  # Increased from 10 to allow for more complex interactions
             speaker_selection_method="round_robin",  # Ensures ordered participation
             allow_repeat_speaker = False  # Prevents same agent from speaking twice in a row
         )
