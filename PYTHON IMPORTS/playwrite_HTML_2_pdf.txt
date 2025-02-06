@@ -1,0 +1,72 @@
+from playwright.sync_api import sync_playwright
+import os
+import pandas as pd
+import time
+from PyPDF2 import PdfMerger
+import tempfile
+
+def save_pages_as_single_pdf(df, output_file="combined_pages.pdf"):
+    # Create a temporary directory to store individual PDFs
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_pdfs = []
+        
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            
+            for i, row in df.iterrows():
+                try:
+                    url = row['Full Link']
+                    
+                    # Create a new page
+                    page = browser.new_page()
+                    
+                    # Navigate to URL
+                    try:
+                        print(f"Loading page {i+1}/{len(df)}: {url}")
+                        page.goto(url, wait_until="networkidle", timeout=30000)  # 30 second timeout
+                    except Exception as e:
+                        print(f"Error loading {url}: {str(e)}")
+                        page.close()
+                        continue
+                    
+                    # Generate temporary PDF path
+                    temp_pdf = os.path.join(temp_dir, f"page_{i+1}.pdf")
+                    
+                    # Save as PDF
+                    page.pdf(path=temp_pdf)
+                    temp_pdfs.append(temp_pdf)
+                    print(f"Successfully saved page {i+1}")
+                    
+                    # Close the page
+                    page.close()
+                    
+                    # Add a small delay between requests
+                    time.sleep(2)
+                    
+                except Exception as e:
+                    print(f"Error processing {url}: {str(e)}")
+            
+            browser.close()
+        
+        # Merge all PDFs
+        print("Merging PDFs...")
+        merger = PdfMerger()
+        
+        for pdf in temp_pdfs:
+            try:
+                merger.append(pdf)
+            except Exception as e:
+                print(f"Error merging {pdf}: {str(e)}")
+        
+        # Write the final combined PDF
+        merger.write(output_file)
+        merger.close()
+        
+        print(f"Successfully created combined PDF: {output_file}")
+
+# Read the CSV file
+file = PATH
+df = pd.read_csv(file)
+
+# Process all URLs and create single PDF
+save_pages_as_single_pdf(df, "combined_documentation.pdf")
