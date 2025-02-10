@@ -1,0 +1,16 @@
+from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
+from llama_index.core import Settings
+from llama_index.core import embeddings
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+
+# Must declare settings first if not using nest_asyncio
+Settings.llm = None
+Settings.embed_model = HuggingFaceEmbedding()
+
+# Load documents and create index
+documents = SimpleDirectoryReader("./data").load_data()
+index = VectorStoreIndex.from_documents(documents)
+
+# Query
+response = index.as_query_engine().query("Summarize my document.")
+print(response)
